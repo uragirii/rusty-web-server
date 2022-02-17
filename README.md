@@ -12,7 +12,7 @@ To run, make sure you have Rust installed and then simply do `cargo run` inside 
 
 It would be great if it can :
 
-- [ ] Parse `HTTP` Headers
+- [x] Parse `HTTP` Headers
   - [ ] Support getters for headers (case insensitive).
 - [ ] Return a simple `Response`.
 - [ ] Follow `HTML` spec more tightly
