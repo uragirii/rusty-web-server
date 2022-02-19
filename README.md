@@ -4,7 +4,7 @@ This is a very basic implementation of a `HTTP/1.1` web server in Rust. The init
 
 ## What can it do?
 
-Welp being a very simple web server it can't do much. Currently, it can recieve and parse the `Request` and now it returns a very minimal `Response` also! I have some todos for it but I'm sure if they would be completed.
+Welp being a very simple web server it can't do much. Currently, it can recieve and parse the `Request` and now it returns a very minimal `Response` also! I have some todos for it but I'm not sure if they would be completed.
 
 To run, make sure you have Rust installed and then simply do `cargo run` inside the project dir.
 
@@ -34,8 +34,8 @@ You can find the dependencies in the `Cargo.toml` files, _if any_. I would try t
 
 ## Looks great can I help?
 
-I would love that! I'm still a beginner in Rust and this is a fun project so hop on! In general I would like to implement this on my own (& learn Rust). But there are many things were I would opt for a _programitically cheaper_ path and not give too much thoughts about it. If you can please, open a PR. (Bugs are also welcome!)
+I would love that! I'm still a beginner in Rust and this is a fun project so hop on! In general I would like to implement this on my own (& learn Rust). But there are many things where I would opt for a _programitically cheaper_ path and not give too much thoughts about it. If you can please, open a PR. (Bugs are also welcome!)
 
-<details><summary>I would try to like here</summary>
+<details><summary>I would try to link here</summary>
 I Forgor 💀
 </details>
