@@ -27,8 +27,8 @@ impl Server {
                             let request = Request::try_from(&buffer[..]).unwrap();
                             println!("{}",request);
                             let mut responseHeaders = Header::new();
-                            responseHeaders.insert("TEST".to_string(), "It works");
-                            let response = Response::new(crate::http::response_code::ResponseCodes::Ok,responseHeaders, "<h1>This works</>" );
+                            responseHeaders.insert("Content-Type".to_string(), "text/html");
+                            let response = Response::new(crate::http::response_code::ResponseCodes::Ok,responseHeaders, "<h1>This works</h1>" );
                             write!(stream, "{}", response);
                         }
                         Err(_) => println!("Error reading"),
