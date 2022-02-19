@@ -1,10 +1,22 @@
 use std::collections::HashMap;
 use std::convert::TryFrom;
+use std::fmt;
 
-#[derive(Debug)]
 
 pub struct Header <'buf>{
   header : HashMap<String, &'buf str>,
+}
+
+impl<'buf> Header<'buf> {
+  pub fn new() -> Self {
+    let header = HashMap::new();
+    Self{
+      header,
+    }
+  }
+  pub fn insert(&mut self, key:String, value:&'buf str) {
+    self.header.insert(key, value);
+  } 
 }
 
 impl <'buf>TryFrom<&'buf str> for Header<'buf> {
@@ -34,7 +46,6 @@ impl <'buf>TryFrom<&'buf str> for Header<'buf> {
 }
 
 // idk lol how to share functions from different modules
-
 fn split_string<'a>(s:&'a str)-> Option<(&'a str, &'a str)> {
   for (i, ch) in s.chars().enumerate() {
     if ch =='\n' {
@@ -52,4 +63,22 @@ fn parse_header_line(s:&str) -> Option<(&str, &str)> {
     return Some((key, value));
   }
   None
+}
+
+impl<'a> fmt::Display for Header<'a> {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    for (k, v) in self.header.iter(){
+      write!(f, "\n{}:{}",*k,*v);
+    };
+    return Ok(());
+  }
+}
+
+impl<'a> fmt::Debug for Header<'a> {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    for (k, v) in self.header.iter(){
+      write!(f, "\n{}:{}",*k,*v);
+    };
+    return Ok(());
+  }
 }
