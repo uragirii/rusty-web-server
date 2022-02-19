@@ -14,7 +14,7 @@ It would be great if it can :
 
 - [x] Parse `HTTP` Headers
   - [ ] Support getters for headers (case insensitive).
-- [ ] Return a simple `Response`.
+- [x] Return a simple `Response`.
 - [ ] Follow `HTML` spec more tightly
   - [ ] Return appropriate `Response Codes`
   - [ ] Support for more `HTTP Methods`
