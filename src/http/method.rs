@@ -1,4 +1,5 @@
 use std::str::FromStr;
+use std::fmt;
 
 #[derive(Debug)]
 pub enum Method {
@@ -17,6 +18,17 @@ impl FromStr for Method {
         "PUT" => Ok(Method::PUT),
         "DELETE" => Ok(Method::DELETE),
         _ => Err("Unsupported Method".to_string())
+    }
+  }
+}
+
+impl fmt::Display for Method {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    match self {
+        Method::GET => write!(f,"GET"),
+        Method::POST => write!(f,"POSt"),
+        Method::PUT => write!(f,"PUT"),
+        Method::DELETE => write!(f,"DELETE"),
     }
   }
 }

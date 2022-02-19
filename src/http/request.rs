@@ -2,7 +2,7 @@ use super::header::Header;
 use super::method::Method;
 use std::convert::TryFrom;
 use std::str::FromStr;
-
+use std::fmt;
 use std::str;
 
 #[derive(Debug)]
@@ -71,6 +71,14 @@ impl <'buf> TryFrom<&'buf[u8]> for Request<'buf>{
     Err(ParseError::InvalidRequest)    
   }
 }
+
+impl<'buf> fmt::Display for Request<'buf> {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+   write!(f, "[{}] {}",self.method, self.path)
+  }
+}
+
+
 
 fn split_string(request:&str) -> Option<(&str, &str)> {
   for (i, ch) in request.chars().enumerate() {

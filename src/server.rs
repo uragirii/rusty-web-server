@@ -25,11 +25,11 @@ impl Server {
                     match stream.read(&mut buffer) {
                         Ok(_) => {
                             let request = Request::try_from(&buffer[..]).unwrap();
+                            println!("{}",request);
                             let mut responseHeaders = Header::new();
                             responseHeaders.insert("TEST".to_string(), "It works");
                             let response = Response::new(crate::http::response_code::ResponseCodes::Ok,responseHeaders, "<h1>This works</>" );
                             write!(stream, "{}", response);
-                            println!("{}",response);
                         }
                         Err(_) => println!("Error reading"),
                     }
